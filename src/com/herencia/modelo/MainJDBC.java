@@ -122,9 +122,9 @@ public class MainJDBC {
         } while (op != 0);
     }
 
-    // ══════════════════════════════════════════════════════════════
-    //  MENU PRODUCTOS
-    // ══════════════════════════════════════════════════════════════
+
+    //  Menu Productos
+
     static void menuProductos() {
         int op;
         do {
@@ -190,9 +190,9 @@ public class MainJDBC {
         } while (op != 0);
     }
 
-    // ══════════════════════════════════════════════════════════════
-    //  MENU COMPRAS
-    // ══════════════════════════════════════════════════════════════
+
+    //  Menu compras
+
     static void menuCompras() {
         int op;
         do {
@@ -255,9 +255,9 @@ public class MainJDBC {
         } while (op != 0);
     }
 
-    // ══════════════════════════════════════════════════════════════
-    //  MENU DISPOSICIONES
-    // ══════════════════════════════════════════════════════════════
+
+    //  Menu Disposiciones
+
     static void menuDisposiciones() {
         int op;
         do {
@@ -339,9 +339,9 @@ public class MainJDBC {
         } while (op != 0);
     }
 
-    // ══════════════════════════════════════════════════════════════
+
     //  MENU REPORTES (consultas analíticas del script SQL)
-    // ══════════════════════════════════════════════════════════════
+
     static void menuReportes() {
         int op;
         do {
@@ -363,9 +363,8 @@ public class MainJDBC {
         } while (op != 0);
     }
 
-    // ══════════════════════════════════════════════════════════════
+
     //  MÉTODOS AUXILIARES
-    // ══════════════════════════════════════════════════════════════
     static String[] pedirDatosBase() {
         System.out.print("  Nombre: ");    String nombre    = sc.nextLine();
         System.out.print("  Email: ");     String email     = sc.nextLine();

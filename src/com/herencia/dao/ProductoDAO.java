@@ -14,10 +14,7 @@ public class ProductoDAO {
 
     // LISTAR TODOS
 
-    /**
-     * Trae todos los productos con su categoría y material ya construidos.
-     * El JOIN nos permite leer categorias y materiales en una sola consulta.
-     */
+
     public List<Producto> listarTodos() {
         List<Producto> lista = new ArrayList<>();
 

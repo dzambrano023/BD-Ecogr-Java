@@ -187,7 +187,7 @@ public class UsuarioDAO {
         return false;
     }
 
-    // ── MÉTODO PRIVADO: construir objeto Usuario desde un ResultSet ────────
+    // ── METODO PRIVADO: construir objeto Usuario desde un ResultSet ────────
 
     /**
      * Lee una fila del ResultSet y devuelve la subclase correcta de Usuario.
