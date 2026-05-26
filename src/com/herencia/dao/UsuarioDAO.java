@@ -12,25 +12,26 @@ import java.util.List;
  * -------------------
  * DAO = Data Access Object.
  * Esta clase traduce entre objetos Java y filas de la tabla "usuarios".
- *
+ * <p>
  * Conceptos JDBC que usamos aquí:
- *
- *   Connection     → representa la conexión activa con MySQL
- *   PreparedStatement → consulta SQL parametrizada con "?" (evita SQL Injection)
- *   ResultSet      → tabla de resultados que devuelve un SELECT
- *
+ * <p>
+ * Connection     → representa la conexión activa con MySQL
+ * PreparedStatement → consulta SQL parametrizada con "?" (evita SQL Injection)
+ * ResultSet      → tabla de resultados que devuelve un SELECT
+ * <p>
  * Flujo típico de un método:
- *   1. Obtener conexión: ConexionDB.getConexion()
- *   2. Preparar SQL: con.prepareStatement("SELECT ...")
- *   3. Ejecutar:
- *      - executeQuery()  → para SELECT (devuelve ResultSet)
- *      - executeUpdate() → para INSERT / UPDATE / DELETE
- *   4. Leer ResultSet (si aplica): rs.next(), rs.getString("columna")
- *   5. Cerrar recursos: rs.close(), stmt.close()
+ * 1. Obtener conexión: ConexionDB.getConexion()
+ * 2. Preparar SQL: con.prepareStatement("SELECT ...")
+ * 3. Ejecutar:
+ * - executeQuery()  → para SELECT (devuelve ResultSet)
+ * - executeUpdate() → para INSERT / UPDATE / DELETE
+ * 4. Leer ResultSet (si aplica): rs.next(), rs.getString("columna")
+ * 5. Cerrar recursos: rs.close(), stmt.close()
  */
 public class UsuarioDAO {
 
     // ── LISTAR TODOS ─────────────────────────────────────────────────────
+
     /**
      * Lee todos los usuarios de la BD y los devuelve como objetos Java.
      * Usa la columna tipo_usuario_id para instanciar la subclase correcta.
@@ -190,18 +191,19 @@ public class UsuarioDAO {
     }
 
     // ── MÉTODO PRIVADO: construir objeto Usuario desde un ResultSet ────────
+
     /**
      * Lee una fila del ResultSet y devuelve la subclase correcta de Usuario.
      * Este método centraliza la lógica para no repetirla en listarTodos y buscarPorId.
      */
     private Usuario construirUsuario(ResultSet rs) throws SQLException {
-        int    id        = rs.getInt("usuario_id");
-        String nombre    = rs.getString("nombre");
-        String email     = rs.getString("email");
-        String telefono  = rs.getString("telefono");
+        int id = rs.getInt("usuario_id");
+        String nombre = rs.getString("nombre");
+        String email = rs.getString("email");
+        String telefono = rs.getString("telefono");
         String direccion = rs.getString("direccion");
-        String ciudad    = rs.getString("ciudad");
-        int    tipo      = rs.getInt("tipo_usuario_id");
+        String ciudad = rs.getString("ciudad");
+        int tipo = rs.getInt("tipo_usuario_id");
 
         switch (tipo) {
             case 1: // Reciclador

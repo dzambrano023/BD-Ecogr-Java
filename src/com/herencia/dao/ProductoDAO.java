@@ -13,16 +13,17 @@ import java.util.List;
  * PASO 3 - ProductoDAO
  * --------------------
  * Maneja SELECT e INSERT de la tabla "productos".
- *
+ * <p>
  * Punto importante:
- *   Producto tiene referencias a Categoria y Material (objetos Java).
- *   En SQL, solo guardamos categoria_id y material_id (enteros).
- *   Al leer, reconstruimos los objetos haciendo JOIN en la misma consulta,
- *   así evitamos hacer consultas extras a la BD.
+ * Producto tiene referencias a Categoria y Material (objetos Java).
+ * En SQL, solo guardamos categoria_id y material_id (enteros).
+ * Al leer, reconstruimos los objetos haciendo JOIN en la misma consulta,
+ * así evitamos hacer consultas extras a la BD.
  */
 public class ProductoDAO {
 
     // LISTAR TODOS
+
     /**
      * Trae todos los productos con su categoría y material ya construidos.
      * El JOIN nos permite leer categorias y materiales en una sola consulta.
@@ -119,7 +120,10 @@ public class ProductoDAO {
     }
 
     // Listar categorias
-    /** Útil para mostrar el catálogo de categorías al registrar un producto. */
+
+    /**
+     * Útil para mostrar el catálogo de categorías al registrar un producto.
+     */
     public List<Categoria> listarCategorias() {
         List<Categoria> lista = new ArrayList<>();
         try {
@@ -161,7 +165,7 @@ public class ProductoDAO {
     private Producto construirProducto(ResultSet rs) throws SQLException {
         Categoria cat = new Categoria(rs.getInt("categoria_id"),
                 rs.getString("nombre_categoria"));
-        Material mat  = new Material(rs.getInt("material_id"),
+        Material mat = new Material(rs.getInt("material_id"),
                 rs.getString("nombre_material"));
         return new Producto(
                 rs.getInt("producto_id"),

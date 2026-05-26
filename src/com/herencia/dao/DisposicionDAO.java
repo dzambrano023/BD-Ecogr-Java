@@ -10,9 +10,9 @@ import java.util.List;
 
 public class DisposicionDAO {
 
-    private final UsuarioDAO  usuarioDAO  = new UsuarioDAO();
+    private final UsuarioDAO usuarioDAO = new UsuarioDAO();
     private final ProductoDAO productoDAO = new ProductoDAO();
-    private final CompraDAO   compraDAO   = new CompraDAO();
+    private final CompraDAO compraDAO = new CompraDAO();
 
     // ── LISTAR TODOS ──────────────────────────────────────────────────────
     public List<Disposicion> listarTodos() {
@@ -152,8 +152,8 @@ public class DisposicionDAO {
 
     // Metodo Privado
     private Disposicion construirDisposicion(ResultSet rs) throws SQLException {
-        Compra   compra   = compraDAO.buscarPorId(rs.getInt("compra_id"));
-        Usuario  usuario  = usuarioDAO.buscarPorId(rs.getInt("usuario_id"));
+        Compra compra = compraDAO.buscarPorId(rs.getInt("compra_id"));
+        Usuario usuario = usuarioDAO.buscarPorId(rs.getInt("usuario_id"));
         Producto producto = productoDAO.buscarPorId(rs.getInt("producto_id"));
 
         if (compra == null || usuario == null || producto == null) return null;

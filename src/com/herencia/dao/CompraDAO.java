@@ -97,7 +97,6 @@ public class CompraDAO {
         }
         return false;
     }
-
     // Metodo Privado
     /**
      * Construye un objeto Compra completo desde un ResultSet.
