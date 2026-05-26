@@ -65,7 +65,7 @@ public class UsuarioDAO {
         return lista;
     }
 
-    // ── BUSCAR POR ID ─────────────────────────────────────────────────────
+    // Buscar por ID
     public Usuario buscarPorId(int id) {
         String sql = "SELECT u.*, t.nombre_tipo " +
                 "FROM usuarios u " +
@@ -92,7 +92,7 @@ public class UsuarioDAO {
         return null;
     }
 
-    // ── INSERTAR RECICLADOR ───────────────────────────────────────────────
+    // Insertar Reciclador
     public boolean insertarReciclador(Reciclador r) {
         // tipo_usuario_id = 1 para Reciclador (según tus datos)
         String sql = "INSERT INTO usuarios (nombre, email, telefono, direccion, ciudad, " +
@@ -127,7 +127,7 @@ public class UsuarioDAO {
         return false;
     }
 
-    // ── INSERTAR ADMINISTRADOR ────────────────────────────────────────────
+    // Insertar Administrador
     public boolean insertarAdministrador(Administrador a) {
         String sql = "INSERT INTO usuarios (nombre, email, telefono, direccion, ciudad, " +
                 "tipo_usuario_id, nivel_acceso) VALUES (?,?,?,?,?,2,?)";
@@ -158,7 +158,7 @@ public class UsuarioDAO {
         return false;
     }
 
-    // ── INSERTAR OPERARIO ─────────────────────────────────────────────────
+    // Insertar operario
     public boolean insertarOperario(Operario o) {
         String sql = "INSERT INTO usuarios (nombre, email, telefono, direccion, ciudad, " +
                 "tipo_usuario_id, turno) VALUES (?,?,?,?,?,3,?)";

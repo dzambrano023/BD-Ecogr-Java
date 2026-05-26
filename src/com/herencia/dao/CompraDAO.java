@@ -9,19 +9,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * PASO 4 - CompraDAO
- * ------------------
- * Maneja la tabla "compras".
- *
- * Una Compra referencia a Usuario y a Producto.
- * Al leer de la BD necesitamos reconstruir esos objetos.
- * Para no duplicar lógica, reutilizamos UsuarioDAO y ProductoDAO.
- *
- * Concepto importante: calcularTotal() en Compra.java ya existe como método Java.
- * No necesitamos guardarlo en la BD porque siempre se puede recalcular.
- * Esto se llama "dato derivado" → solo se persiste lo esencial.
- */
 public class CompraDAO {
 
     // Reutilizamos los DAOs existentes para reconstruir los objetos relacionados
@@ -57,7 +44,7 @@ public class CompraDAO {
         return lista;
     }
 
-    // ── BUSCAR POR ID ─────────────────────────────────────────────────────
+    // Buscar por ID
     public Compra buscarPorId(int id) {
         String sql = "SELECT compra_id, usuario_id, producto_id, fecha_compra, cantidad " +
                 "FROM compras WHERE compra_id = ?";
@@ -82,7 +69,7 @@ public class CompraDAO {
         return null;
     }
 
-    // ── INSERTAR ──────────────────────────────────────────────────────────
+    // INSERTAR
     public boolean insertar(Compra c) {
         String sql = "INSERT INTO compras (usuario_id, producto_id, fecha_compra, cantidad) " +
                 "VALUES (?,?,?,?)";
@@ -111,7 +98,7 @@ public class CompraDAO {
         return false;
     }
 
-    // ── MÉTODO PRIVADO ────────────────────────────────────────────────────
+    // Metodo Privado
     /**
      * Construye un objeto Compra completo desde un ResultSet.
      * Llama a UsuarioDAO y ProductoDAO para obtener los objetos relacionados.

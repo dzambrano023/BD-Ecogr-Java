@@ -22,7 +22,7 @@ import java.util.List;
  */
 public class ProductoDAO {
 
-    // ── LISTAR TODOS ──────────────────────────────────────────────────────
+    // LISTAR TODOS
     /**
      * Trae todos los productos con su categoría y material ya construidos.
      * El JOIN nos permite leer categorias y materiales en una sola consulta.
@@ -56,7 +56,7 @@ public class ProductoDAO {
         return lista;
     }
 
-    // ── BUSCAR POR ID ─────────────────────────────────────────────────────
+    // Buscar por ID
     public Producto buscarPorId(int id) {
         String sql = "SELECT p.producto_id, p.nombre_producto, p.fecha_fabricacion, p.precio, " +
                 "       c.categoria_id, c.nombre_categoria, " +
@@ -86,14 +86,8 @@ public class ProductoDAO {
         return null;
     }
 
-    // ── INSERTAR ──────────────────────────────────────────────────────────
-    /**
-     * Guarda un Producto nuevo en la BD.
-     * Nota: guardamos los IDs de categoria y material (las FK), no los objetos completos.
-     *
-     * java.sql.Date.valueOf() convierte java.util.Date a java.sql.Date,
-     * que es el tipo que entiende JDBC para columnas DATE de MySQL.
-     */
+    // Insertar
+
     public boolean insertar(Producto p) {
         String sql = "INSERT INTO productos (nombre_producto, fecha_fabricacion, precio, " +
                 "categoria_id, material_id) VALUES (?,?,?,?,?)";
@@ -124,7 +118,7 @@ public class ProductoDAO {
         return false;
     }
 
-    // ── LISTAR CATEGORÍAS ─────────────────────────────────────────────────
+    // Listar categorias
     /** Útil para mostrar el catálogo de categorías al registrar un producto. */
     public List<Categoria> listarCategorias() {
         List<Categoria> lista = new ArrayList<>();
@@ -144,7 +138,7 @@ public class ProductoDAO {
         return lista;
     }
 
-    // ── LISTAR MATERIALES ─────────────────────────────────────────────────
+    // Listar Materiales
     public List<Material> listarMateriales() {
         List<Material> lista = new ArrayList<>();
         try {
@@ -163,7 +157,7 @@ public class ProductoDAO {
         return lista;
     }
 
-    // ── MÉTODO PRIVADO: construir Producto desde ResultSet ─────────────────
+    //  Metodo Privado construir Producto desde ResultSet
     private Producto construirProducto(ResultSet rs) throws SQLException {
         Categoria cat = new Categoria(rs.getInt("categoria_id"),
                 rs.getString("nombre_categoria"));

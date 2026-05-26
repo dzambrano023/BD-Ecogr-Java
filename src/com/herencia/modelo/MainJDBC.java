@@ -2,7 +2,6 @@ package com.herencia.modelo;
 
 import com.herencia.conexion.ConexionBD;
 import com.herencia.dao.*;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -26,7 +25,6 @@ public class MainJDBC {
         do {
             System.out.println("\n========================================");
             System.out.println("        SISTEMA ECOGR - ODS12           ");
-            System.out.println("         (Conectado a MySQL)            ");
             System.out.println("========================================");
             System.out.println("  1. Gestionar Usuarios");
             System.out.println("  2. Gestionar Productos");
@@ -53,9 +51,7 @@ public class MainJDBC {
         } while (opcion != 0);
     }
 
-    // ══════════════════════════════════════════════════════════════
     //  MENU USUARIOS
-    // ══════════════════════════════════════════════════════════════
     static void menuUsuarios() {
         int op;
         do {

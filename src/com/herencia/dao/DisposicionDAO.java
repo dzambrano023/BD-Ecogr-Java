@@ -8,12 +8,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * PASO 5 - DisposicionDAO
- * -----------------------
- * Maneja la tabla "disposiciones".
- * Incluye también 3 reportes analíticos del script SQL.
- */
 public class DisposicionDAO {
 
     private final UsuarioDAO  usuarioDAO  = new UsuarioDAO();
@@ -156,7 +150,7 @@ public class DisposicionDAO {
         }
     }
 
-    // ── MÉTODO PRIVADO ────────────────────────────────────────────────────
+    // Metodo Privado
     private Disposicion construirDisposicion(ResultSet rs) throws SQLException {
         Compra   compra   = compraDAO.buscarPorId(rs.getInt("compra_id"));
         Usuario  usuario  = usuarioDAO.buscarPorId(rs.getInt("usuario_id"));
