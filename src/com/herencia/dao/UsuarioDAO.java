@@ -32,10 +32,7 @@ public class UsuarioDAO {
 
     // ── LISTAR TODOS ─────────────────────────────────────────────────────
 
-    /**
-     * Lee todos los usuarios de la BD y los devuelve como objetos Java.
-     * Usa la columna tipo_usuario_id para instanciar la subclase correcta.
-     */
+
     public List<Usuario> listarTodos() {
         List<Usuario> lista = new ArrayList<>();
 

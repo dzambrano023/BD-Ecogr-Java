@@ -9,17 +9,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * PASO 3 - ProductoDAO
- * --------------------
- * Maneja SELECT e INSERT de la tabla "productos".
- * <p>
- * Punto importante:
- * Producto tiene referencias a Categoria y Material (objetos Java).
- * En SQL, solo guardamos categoria_id y material_id (enteros).
- * Al leer, reconstruimos los objetos haciendo JOIN en la misma consulta,
- * así evitamos hacer consultas extras a la BD.
- */
+
 public class ProductoDAO {
 
     // LISTAR TODOS
